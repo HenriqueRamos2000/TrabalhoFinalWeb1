@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sensor Data Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="wrapper">
+    <div class="container">
+    
+    <div id="updateModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close" onclick="closeUpdateModal()">&times;</span>
+            <h2>Update Entry</h2>
+            <form id="updateForm">
+                <label>
+                    Temperature:
+                    <input type="number" id="updateTemperature" required />
+                </label><br>
+                <label>
+                    Humidity:
+                    <input type="number" id="updateHumidity" required />
+                </label><br>
+                <label>
+                    Pressure:
+                    <input type="number" id="updatePressure" required />
+                </label><br>
+                <label>
+                    Weather:
+                    <select id="updateWeather">
+                        <option value="">Select weather</option>
+                        <option value="Clear">Clear</option>
+                        <option value="Cloudy">Cloudy</option>
+                        <option value="Rainy">Rainy</option>
+                    </select>
+                </label><br>
+                <label>
+                    Sensor:
+                    <select id="updateSensor">
+                    </select>
+                </label><br>
+                <button type="button" onclick="submitUpdate()">Submit</button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Sensor Data List on the Left -->
+    <div id="data-list-wrapper">
+        <h2>Sensor Measurements</h2>
+    <div id="data-list">     
+        <div id="data-items"></div>
+    </div>
+    </div>
+
+    <!-- Form on the Right -->
+    <div class="from-wrapper">
+    <div class="form-container">
+        <h2>Add New Sensor Data</h2>
+        <label>Temperature: <input type="number" id="temperature" /></label>
+        <label>Humidity: <input type="number" id="humidity" /></label>
+        <label>Pressure: <input type="number" id="pressure" /></label>
+        <label>Weather: 
+            <select id="weather">
+                <option value="">Select weather</option>
+                <option value="Clear">Clear</option>
+                <option value="Cloudy">Cloudy</option>
+                <option value="Rainy">Rainy</option>
+            </select>
+        </label>
+        <label>Sensor:
+            <select id="sensor">
+            </select>
+        </label>
+        <button onclick="createData()">Add Data</button>
+    </div>
+    <div class="dew-point">
+        <h2>Calculate Dew Point</h2>
+        <label>Choose ID: 
+            <select id="data-id" onchange="updateSelectedData()">
+                <option value="">Select an ID</option>
+            </select>
+        </label>
+        <button onclick="calculateDewPointForSelected()">Calculate Dew Point</button>
+        <div id="selected-data">
+            <p><strong>Temperature:</strong> <span id="selected-temperature"></span></p>
+            <p><strong>Humidity:</strong> <span id="selected-humidity"></span></p>
+            <p><strong>Timestamp:</strong> <span id="selected-timestamp"></span></p>
+        </div>
+        <p id="dew-point-result"></p>
+    </div>
+    </div>
+    
+</div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

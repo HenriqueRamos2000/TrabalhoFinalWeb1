@@ -1,0 +1,207 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(#87ceeb, #b0e0e6, #ffffff);
+    min-height: 100vh;
+    margin: 0;
+}
+
+.wrapper {
+    width: 100%;
+    padding: 20px;
+}
+
+/* Container for the measurements and form */
+.container {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    gap: 20px;
+    margin: auto;
+}
+
+#data-list-wrapper {
+    flex: 2;
+}
+
+#data-list-wrapper h2 {
+    margin: 0 0 10px 0;
+    text-align: center;
+    font-size: 1.5em;
+    color: #333;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+/* Styling for the data list */
+#data-list {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    overflow-y: auto;
+    max-height: 100vh;
+}
+
+.data-item {
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+}
+
+.data-item:last-child {
+    border-bottom: none;
+}
+
+#form-wrapper {
+    flex: 1;
+    flex-direction: column;
+}
+
+/* Styling for the form */
+.form-container {
+    flex: 1;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f4f4f4;
+    max-height: 60vh;
+    margin-bottom: 10px;
+}
+
+.dew-point {
+    flex: 2;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f4f4f4;
+    max-height: 60vh;
+}
+
+.form-container select, .dew-point select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 4px;
+    margin-bottom: 10px;
+    border: 1px solid #646464;
+    border-radius: 4px;
+    background-color: #fff;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.form-container h2, .dew-point h2 {
+    margin-top: 0;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+}
+
+input {
+    width: 100%;
+    padding: 5px;
+    margin-top: 5px;
+    box-sizing: border-box;
+}
+
+button {
+    margin-top: 15px;
+    padding: 8px 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure modal is above other content */
+}
+
+.modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+/* Scoped styles for the form within the modal */
+.modal-content form label {
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.modal-content form input[type="number"],
+.modal-content form select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+}
+
+.modal-content form button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.modal-content form button:hover {
+    background-color: #0056b3;
+}
+
+@media (max-width: 600px) {
+    .container {
+        flex-direction: column; /* Stack elements vertically */
+        width: 100%; /* Use full width for smaller screens */
+    }
+
+    .form-container {
+        order: 1; /* Ensure form comes first */
+        width: 100%; /* Take full width */
+        margin-bottom: 20px; /* Add spacing below the form */
+    }
+
+    #data-list {
+        order: 2; /* Ensure sensor data comes after the form */
+        width: 100%; /* Take full width */
+    }
+}
