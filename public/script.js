@@ -64,7 +64,7 @@ async function updateSelectedData() {
     document.getElementById("dew-point-result").innerHTML = '';
 }
 
-async function calculateDewPointForSelected() {
+function calculateDewPointForSelected() {
     const selectedId = document.getElementById("data-id").value;
     var temperature = document.getElementById("selected-temperature").textContent
     var humidity = document.getElementById("selected-humidity").textContent
